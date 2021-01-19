@@ -40,7 +40,7 @@ class PictureUploadLocalization {
 class PictureUploadSettings {
   /// Basic settings for PictureUploadWidget
   PictureUploadSettings({
-    this.uploadDirectory = '/Uploads/',
+    this.uploadDirectory = '/ItemFeedback/',
     this.imageSource = ImageSourceExtended.gallery,
     this.customUploadFunction,
     this.customDeleteFunction,
@@ -152,6 +152,8 @@ class PictureUploadWidget extends StatefulWidget {
       FirebaseStorage storageInstance,
       @required this.onPicturesChange,
       this.initialImages,
+        this.doNo,
+        this.itemNo,
       this.buttonText = 'Upload Picture',
       this.enabled = true})
       : settings = settings ?? PictureUploadSettings(),
@@ -159,6 +161,8 @@ class PictureUploadWidget extends StatefulWidget {
         localization = localization ?? PictureUploadLocalization(),
         storageInstance = storageInstance ?? FirebaseStorage.instance;
 
+  final doNo;
+  final itemNo;
   /// Function is called after an image is uploaded, the the UploadJob as parameter
   final Function onPicturesChange;
 
